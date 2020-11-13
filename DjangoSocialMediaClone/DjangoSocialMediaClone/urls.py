@@ -24,6 +24,6 @@ urlpatterns = [
     path('thanks/', views.ThanksPage.as_view(), name="thanks"),
     path('accounts/', include("accounts.urls", namespace="accounts")),
     path('accounts/', include("django.contrib.auth.urls")),     # Connects necessary views for django's authorizations
-    # path('posts/', include("posts.urls", namespace="posts")),
-    # path('groups/',include("groups.urls", namespace="groups")),
+    path('posts/', include("posts.urls", namespace="posts")),
+    path('groups/',include("groups.urls", namespace="groups")),
 ]
