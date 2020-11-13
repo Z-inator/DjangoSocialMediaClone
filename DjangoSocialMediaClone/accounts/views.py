@@ -1,6 +1,6 @@
 from django.shortcuts import render
-from django.core.urlresolvers import reverse_lazy
-from django.views.generic import TemplateView
+from django.urls import reverse_lazy
+from django.views.generic import TemplateView, CreateView
 
 from . import forms
 
