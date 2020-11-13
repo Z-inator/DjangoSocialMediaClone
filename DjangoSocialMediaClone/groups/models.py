@@ -1,16 +1,21 @@
 from django.db import models
+from django.conf import settings
 from django.utils.text import slugify
 from django.urls import reverse
 
+# pip install misaka
 import misaka
 
 from django.contrib.auth import get_user_model
 User = get_user_model()
 
+# https://docs.djangoproject.com/en/2.0/howto/custom-template-tags/#inclusion-tags
+# This is for the in_group_members check template tag
 from django import template
 register = template.Library()
 
 # Create your models here.
+
 
 class Group(models.Model):
     name = models.CharField(max_length=255, unique=True)
@@ -32,6 +37,7 @@ class Group(models.Model):
 
     class Meta:
         ordering = ['name']
+
 
 class GroupMember(models.Model):
     group = models.ForeignKey(Group, related_name='memberships', on_delete=models.CASCADE)
