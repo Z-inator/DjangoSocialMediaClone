@@ -25,7 +25,7 @@ class ListGroups(generic.ListView):
     model = Group
 
 
-class JoinGroup(LoginRequiredMixin, generic.CreateView):
+class JoinGroup(LoginRequiredMixin, generic.RedirectView):
     
     def get_redirect_url(self, *args, **kwargs):
         return reverse('groups:single', kwargs={'slug': self.kwargs.get('slug')})
@@ -45,7 +45,7 @@ class JoinGroup(LoginRequiredMixin, generic.CreateView):
         return super().get(request, *args, **kwargs)
 
 
-class LeaveGroup(generic.DeleteView):
+class LeaveGroup(generic.RedirectView):
     
     def get_redirect_url(self, *args, **kwargs):
         return reverse('groups:single', kwargs={'slug':self.kwargs.get('slug')})
