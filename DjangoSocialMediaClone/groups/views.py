@@ -17,3 +17,9 @@ class SingleGroup(generic.DetailView):
 
 class ListGroups(generic.ListView):
     model = Group
+
+class JoinGroup(generic.CreateView):
+    model = Group
+
+class LeaveGroup(generic.DeleteView):
+    model = Group
